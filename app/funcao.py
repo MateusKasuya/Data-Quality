@@ -1,3 +1,3 @@
 def funcao_ola_turma():
-    x = 'ola jornada'
+    x = "ola jornada"
     return x
