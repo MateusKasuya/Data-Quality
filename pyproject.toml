@@ -20,6 +20,9 @@ tqdm = "^4.66.4"
 duckdb = "^0.10.3"
 pydantic = "^2.7.1"
 pandera = {extras = ["io"], version = "^0.19.3"}
+sqlalchemy = "^2.0.30"
+python-dotenv = "^1.0.1"
+psycopg2 = "^2.9.9"
 
 
 [build-system]

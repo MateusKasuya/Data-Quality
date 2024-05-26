@@ -1,10 +1,13 @@
-# Welcome to MkDocs
+# Documentação Data Quality
 
-Ola, essa é minha documentação
-
+Para desenvolver o desafio de negócio, vamos montar a seguinte ETL:
 ```mermaid
-graph LR
-    hello --> world
-    world --> again
-    again --> hell
+graph TD;
+    A[Configura Variáveis] --> B[Ler o Banco SQL];
+    B --> V[Validação do Schema de Entrada];
+    V -->|Falha| X[Alerta de Erro];
+    V -->|Sucesso| C[Transformar os KPIs];
+    C --> Y[Validação do Schema de Saída];
+    Y -->|Falha| Z[Alerta de Erro];
+    Y -->|Sucesso| D[Salvar no DuckDB];
 ```
