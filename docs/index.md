@@ -14,6 +14,20 @@ graph TD;
     Y -->|Sucesso| D[Salvar no DuckDB];
 ```
 
-## Contrato de Dados
+# Contrato de Dados
 
 ::: app.schema.ProdutoSchema
+
+# Transformacoes
+
+## Configurar Variáveis
+::: app.etl.load_settings
+
+## Ler o Banco SQL
+::: app.etl.extrair_do_sql
+
+## Transformar os KPIs
+::: app.etl.transformar
+
+## Salvar no Duckdb
+::: app.etl.load_to_duckdb
