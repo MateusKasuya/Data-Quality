@@ -39,7 +39,7 @@ def extrair_do_sql(query : str) -> pd.DataFrame:
 
 if __name__ == '__main__':
 
-    query = 'SELECT * FROM produtos_bronze'
+    query = 'SELECT * FROM produtos_bronze_email'
     df_crm = extrair_do_sql(query = query)
 
     print(df_crm)
