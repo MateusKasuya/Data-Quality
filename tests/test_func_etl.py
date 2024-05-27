@@ -1,15 +1,21 @@
 import pandas as pd
+from pandera import DataFrameSchema, Column, Check
 
 from app.etl import transformar
+
+
 
 def test_calculo_valor_total_estoque():
     # Preparação
     df = pd.DataFrame({
-        'quantidade': [10, 5],
+        'id_produto' : [1,2],
+        'nome' : ['carrinho', 'notebook'],     
+        'quantidade': [20, 25],
         'preco': [20.0, 100.0],
-        'categoria': ['brinquedos', 'eletrônicos']
+        'categoria': ['brinquedos', 'eletrônicos'],
+        'email' : ['mateusvbkasuya@gmail.com', 'mateuskasuya@hotmail.com']
     })
-    expected = pd.Series([200.0, 500.0], name='valor_total_estoque')
+    expected = pd.Series([400.0, 2500.0], name='valor_total_estoque')
 
     # Ação
     result = transformar(df)
@@ -20,9 +26,12 @@ def test_calculo_valor_total_estoque():
 def test_normalizacao_categoria():
     # Preparação
     df = pd.DataFrame({
-        'quantidade': [1, 2],
-        'preco': [10.0, 20.0],
-        'categoria': ['brinquedos', 'eletrônicos']
+        'id_produto' : [1,2],
+        'nome' : ['carrinho', 'notebook'],  
+        'quantidade': [114, 28],
+        'preco': [20.0, 30.0],
+        'categoria': ['brinquedos', 'eletrônicos'],
+        'email' : ['mateusvbkasuya@gmail.com', 'mateuskasuya@hotmail.com']
     })
     expected = pd.Series(['BRINQUEDOS', 'ELETRÔNICOS'], name='categoria_normalizada')
 
@@ -35,11 +44,14 @@ def test_normalizacao_categoria():
 def test_determinacao_disponibilidade():
     # Preparação
     df = pd.DataFrame({
-        'quantidade': [0, 2],
-        'preco': [10.0, 20.0],
-        'categoria': ['brinquedos', 'eletrônicos']
+        'id_produto' : [1,2],
+        'nome' : ['carrinho', 'notebook'],
+        'quantidade': [100, 25],
+        'preco': [20.0, 30.0],
+        'categoria': ['brinquedos', 'eletrônicos'],
+        'email' : ['mateusvbkasuya@gmail.com', 'mateuskasuya@hotmail.com']
     })
-    expected = pd.Series([False, True], name='disponibilidade')
+    expected = pd.Series([True, True], name='disponibilidade')
 
     # Ação
     result = transformar(df)

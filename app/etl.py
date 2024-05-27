@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine
 import duckdb
 
-from schema import ProdutoSchema, ProductSchemaKPI
+from app.schema import ProdutoSchema, ProductSchemaKPI
 
 
 def load_settings():
