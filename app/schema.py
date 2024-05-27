@@ -3,6 +3,7 @@ from pandera.typing import DataFrame, Series
 
 
 class ProdutoSchema(pa.SchemaModel):
+
     """
     Define o esquema para a validação de dados de produtos com Pandera.
     
@@ -17,6 +18,7 @@ class ProdutoSchema(pa.SchemaModel):
         categoria (Series[str]): Categoria do produto.
         email (Series[str]): E-mail associado ao produto, deve seguir o formato padrão de e-mails.
     """
+
     id_produto: Series[int] = pa.Field(ge = 1, le = 20)
     nome: Series[str]
     quantidade: Series[int] = pa.Field(ge=20, le=200)
@@ -25,3 +27,4 @@ class ProdutoSchema(pa.SchemaModel):
 
     class Config:
         coerce = True
+        strict = True

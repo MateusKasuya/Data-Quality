@@ -1,5 +1,7 @@
 # Documentação Data Quality
 
+## Fluxo
+
 Para desenvolver o desafio de negócio, vamos montar a seguinte ETL:
 ```mermaid
 graph TD;
@@ -11,3 +13,7 @@ graph TD;
     Y -->|Falha| Z[Alerta de Erro];
     Y -->|Sucesso| D[Salvar no DuckDB];
 ```
+
+## Contrato de Dados
+
+::: app.schema.ProdutoSchema
